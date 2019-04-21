@@ -1,32 +1,24 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  handleDecrement = product => {
-    this.setState({ value: this.state.value > 0 ? this.state.value - 1 : 0 });
-  };
-
   render() {
+    const { children, onIncrement, onDelete, counter } = this.props;
     return (
       <div>
-        <span>{this.props.children}</span>
+        <span>{children}</span>
         <span className={this.getBatchClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
+          onClick={() => onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm m-2"
         >
           Increment
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => onDelete(this.props.counter.id)}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
         </button>
-        {/* <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul> */}
       </div>
     );
   }

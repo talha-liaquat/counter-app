@@ -18,6 +18,12 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleIncrement = this.handleIncrement.bind(this);
+    console.log("App - constructor");
+  }
+
+  componentDidMount() {
+    //Ajax call to set state
+    console.log("App - Mounted");
   }
 
   handleReset() {
@@ -42,6 +48,8 @@ class App extends Component {
   }
 
   render() {
+    console.log("App - Rendered");
+
     return (
       <React.Fragment>
         <NavBar
